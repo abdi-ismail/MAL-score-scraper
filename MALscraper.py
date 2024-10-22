@@ -4,12 +4,15 @@ from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import csv
 
+anime_ID=input("Input the ID of the anime you would like to record.")
+
+
 """Seasonal anime stats tracker using MAL - via webscraping
 """
 
 start_time = time.time()
 # specify the url
-quote_page = "https://myanimelist.net/anime/7311"
+quote_page = "https://myanimelist.net/anime/" + anime_ID
 # query the website and return the html to the variable ‘page’
 page = uReq(quote_page)
 page_html = page.read()
