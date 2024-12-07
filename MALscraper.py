@@ -3,9 +3,8 @@ import datetime
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import csv
-
-anime_ID=input("Input the ID of the anime you would like to record.")
-
+# anime_ID=input("Input the ID of the anime you would like to record.")
+anime_ID="54857"
 
 """Seasonal anime stats tracker using MAL - via webscraping
 """
@@ -40,13 +39,3 @@ new_row = name, quote_page, score.strip(), rank, mem.replace(',', ''), pop, date
 with open('MALscraper.csv', 'a', newline='') as csvfile:
     csvwriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
     csvwriter.writerow(new_row)
-
-# print stat info
-print(name)
-print(quote_page)
-print("Score".ljust(14, '-'), score.strip())
-print("Rank".ljust(14, '-'), rank)
-print("Members".ljust(14, '-'), mem)
-print("Popularity".ljust(14, '-'), pop)
-print("timestamp".ljust(14, '-'), datetime.datetime.utcnow().strftime('%d/%m/%Y %H:%M:%S'))
-print("\n--- %s seconds ---" % (time.time() - start_time))
